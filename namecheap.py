@@ -1,4 +1,5 @@
 import time
+import math
 import certifi
 import pyautogui
 from playwright.sync_api import sync_playwright, expect
@@ -22,7 +23,7 @@ EXTENSION_PATH2 = "/Users/n02-19/Desktop/playWright/chrome_Extension/SelectorHub
 USER_DATA_DIR = "/Users/n02-19/PlaywrightProfile"  # User Profile
 
 # mongodb id
-m_id = 6
+m_id = 0
 
 with sync_playwright() as p:    
     browser = p.chromium.launch_persistent_context(
@@ -44,38 +45,17 @@ with sync_playwright() as p:
         ],
         no_viewport=True,
     )
-    
+
     # Launch MongoDB Atlas
     collection = mongodb_atlas()
 
     # Launch a new browser page
     page = browser.pages[0] 
-    page.goto("https://cloud.tencent.com/login/?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fcdn%2Fpackage", wait_until="domcontentloaded")
+    page.goto("https://ap.www.namecheap.com/", wait_until="domcontentloaded")
     
     # Waiting for specific text to be appear
-    expect(page.locator("xpath=//h3[contains(text(),'子用户登录')]")).to_be_visible(timeout=2000)
+    expect(page.locator("xpath=//h1[normalize-space()='Log In to Your Account']")).to_be_visible(timeout= 0) # "Log in to your account"
 
-    # if "子用户登录" appear, change to 邮箱登录
-    try:
-        if page.locator("xpath=//h3[contains(text(),'子用户登录')]"): # "子用户登录"
-            # Button click 
-            b_switch = page.locator("xpath=//button[@class='accsys-control-panel__header-back']")
-            b_switch.click(force=True) # "切换登录方式"
-    except:
-        pass
-
-    # Waiting for specific text to be appear
-    expect(page.locator("xpath=//div[contains(text(),'邮箱登录')]")).to_be_visible(timeout= 0) # "邮箱登录"
-    expect(page.locator("xpath=//div[contains(text(),'微信登录')]")).to_be_visible(timeout= 0) # "微信登录"
-
-    time.sleep(1)
-
-    # Button click 
-    c_email = page.locator("xpath=//div[contains(text(),'邮箱登录')]") 
-    c_email.click(force=True) # "click 邮箱登录上次登录"
-
-    time.sleep(1)
-    
     # click lastpass extension       
     pyautogui.click(x=1359, y=62)
 
@@ -87,49 +67,29 @@ with sync_playwright() as p:
     # lastpass search ven and click 
     time.sleep(1)
     # import aliyun_id from List_zentao.py, ven_id = ven293, ven324, ven319, ven365 ...
-    pyautogui.write(tencent_CN_ID)
+    pyautogui.write(namecheap)
     time.sleep(1)
-    pyautogui.click(x=1175, y=179)
+    pyautogui.click(x=1145, y=240)
     time.sleep(1)
-
-    # Waiting for specific text to be appear
-    expect(page.locator("xpath=//span[@class='accsys-tp-btn__text'][contains(text(),'登录')]")).to_be_visible(timeout= 0) # "登录"
 
     # Button click  
-    c_email = page.locator("xpath=//span[@class='accsys-tp-btn__text'][contains(text(),'登录')]")
-    c_email.click(force=True) # "click 登录"
+    nc_click_login = page.locator("xpath=/html/body/form[1]/div[3]/div/div/div/ul/li/fieldset/div[4]/input")
+    nc_click_login.click(force=True) # "click 登录"
 
     # Waiting for specific text to be appear
-    expect(page.locator("xpath=//h2[contains(text(),'资源包管理')]")).to_be_visible(timeout= 0) # "资源包管理"
-    expect(page.locator("xpath=//div[contains(text(),'剩余流量包')]")).to_be_visible(timeout= 0) # "剩余流量包"
-
-    time.sleep(1)
+    expect(page.locator("xpath=//h2[normalize-space()='Account Balance']")).to_be_visible(timeout= 0) # "Account Balance"
 
     # Extract Credit
-    credit = page.locator(f"//span[normalize-space()='10']").text_content()
+    credit = page.locator(f"//span[normalize-space()='$3 075.42']").text_content()
+    credit = credit.replace('$', "")
 
     # MongoDB Update Data
     mangos_id = {'_id': ObjectId(mongodb_id[m_id])}
     collection.update_one(mangos_id, {"$set": {"Credit": credit}})
     print(f"{tencent_CN_ID[0]}= {credit}")
 
-    # delay 1second
-    page.wait_for_timeout(1000)
-
-    # hover to menu
-    pyautogui.moveTo(1505, 158)
-
-    # wait for specific text to be appear
-    expect(page.locator("xpath=//span[contains(text(),'账号信息')]")).to_be_visible(timeout= 0)
-
-    # Screenshot
-    ImageGrab.grab().save(f'./早班水位/{tencent_CN_ID}.png')
-
-    # delay 1second
-    page.wait_for_timeout(500)
-
-    # Button click Logout
-    b_Logout = page.locator("xpath=//button[contains(text(),'退出')]").click(force=True) # "click 退出"
+    page.close()
+    browser.close()
     
-    # delay 1second
-    page.wait_for_timeout(1000)
+
+

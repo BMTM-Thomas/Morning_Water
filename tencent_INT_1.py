@@ -21,17 +21,20 @@ def mongodb_atlas():
 # 安全加速流量
 def filter_Security_Traffics(credit_Traffic):
     # Filter
-    match = re.search(r"([\d.]+)\s*([MGK]B)", credit_Traffic) 
+    match = re.findall(r'([\d.]+)(?:\s*([MGK]B))?', credit_Traffic)
     
     if match:
-        security_Traffic = float(match.group(1))
-        st_unit = match.group(2)
+        security_Traffic = float(match[0][0]) # regex to decimal/integer number
+        st_unit = match[0][1] # regex into MB/KB
+        st_unit = st_unit.strip() # remove any empty space
 
         # Convert MB to GB, if have...
         if st_unit == "MB":
             security_Traffic /= 1024
         elif st_unit == "KB":
             security_Traffic /= (1024 * 1024)
+        else:
+            pass
 
         # Convert to 3 decimal place, without rounding
         security_Traffic  = math.floor(security_Traffic * 1000) / 1000
@@ -66,6 +69,8 @@ m_id = 0
 
 # use to loop tencent_edgeOne Tuple
 x = 0
+# use to loop tencent_edgeOne Tag
+y = 0
 
 with sync_playwright() as p:    
     browser = p.chromium.launch_persistent_context(
@@ -171,6 +176,7 @@ with sync_playwright() as p:
 
             print(tencent_Int_ID[ven_id])
             print(f"域名: {domain_Name}")
+            print(f"Tag: {tencent_EdgeOne_Tag[y]}")
             print(zone_ID)
             print(f"安全加速流量: {security_Traffic} GB")  
             print(f"安全加速请求: {security_Request} {sr_unit}")  
@@ -187,8 +193,12 @@ with sync_playwright() as p:
             collection.update_one(mangos_id_2, {"$set": {"Credit": security_Request}})
             m_id + 1
 
+            # use to loop tag
+            y+=1
+
         # use to loop tencent_edgeOne Tuple
         x+=1
+   
 
         # hover to menu
         pyautogui.moveTo(1544, 162)

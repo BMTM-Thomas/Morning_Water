@@ -7,18 +7,20 @@ tencent_CN_ID = ("ven178")
 tencent_Int_ID = ("ven295", "ven414", "ven469")
 # 华为 IAM用户登录 【OPSADMIN】
 huawei_ID = ("ven388")
+# namecheap
+namecheap = ("namecheap")
 
-
+# Tencent_Int_EdgeOne
 tencent_edgeOne_ID = (
                   "https://www.tencentcloud.com/account/login?s_url=https%3A%2F%2Fconsole.tencentcloud.com%2Fedgeone%2Fzones",
                   "https://www.tencentcloud.com/account/login/subAccount/200039340025?s_url=https%3A%2F%2Fconsole.tencentcloud.com%2Fedgeone%2Fzones",
                   )
 
 tencent_EdgeOne_1 = (
-                  "https://console.tencentcloud.com/edgeone/zones/detail/zone-3a7o753j8piq/overview", # ven414 xfh8866.com zone-3a7o753j8piq
-                  "https://console.tencentcloud.com/edgeone/zones/detail/zone-3a7nqg1qsyy9/overview", # ven414 yelvlab.com zone-3a7nqg1qsyy9
-                  "https://console.tencentcloud.com/edgeone/zones/detail/zone-39xvl2ifs2ky/overview", # ven414 rimword.com zone-39xvl2ifs2ky
-                  "https://console.tencentcloud.com/edgeone/zones/detail/zone-39ox7p1fxbzl/overview", # ven414 txn2jb.com zone-39ox7p1fxbzl
+                  "https://console.tencentcloud.com/edgeone/zones/detail/zone-3a7o753j8piq/overview", # ven414 xfh8866.com 123tk
+                  "https://console.tencentcloud.com/edgeone/zones/detail/zone-3a7nqg1qsyy9/overview", # ven414 yelvlab.com 49tk
+                  "https://console.tencentcloud.com/edgeone/zones/detail/zone-39xvl2ifs2ky/overview", # ven414 rimword.com a6tk
+                  "https://console.tencentcloud.com/edgeone/zones/detail/zone-39ox7p1fxbzl/overview", # ven414 txn2jb.com 853tk
                   )
 
 tencent_EdgeOne_2 = (
@@ -26,6 +28,8 @@ tencent_EdgeOne_2 = (
                   )
 
 tencent_EdgeOne = (tencent_EdgeOne_1, tencent_EdgeOne_2)  
+
+tencent_EdgeOne_Tag = ("use: 123tk", "use: 49tk", "use: a6tk", "use: 853tk", "use: tk2")
 
 # MongoDB
 mongodb_id = (

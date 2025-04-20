@@ -93,8 +93,8 @@ with sync_playwright() as p:
         pass
     
     # Waiting for specific text to be appear
-    expect(page.locator("xpath=//div[@class='cloud-title title-font']")).to_be_visible(timeout= 30000) # "安全概览"
-    expect(page.locator("xpath=//span[contains(text(),'新手入门')]")).to_be_visible(timeout= 30000) # "新手入门"
+    expect(page.locator("xpath=//span[@class='title'][contains(text(),'我的资源')]")).to_be_visible(timeout= 0) # "我的资源"
+    expect(page.locator("xpath=//span[contains(text(),'ECS资源监控')]")).to_be_visible(timeout= 0) # "ECS资源监控"
 
     # page go to 内容分发网络 CDN
     page.goto("https://console-intl.huaweicloud.com/cdn/?agencyId=8ce23e76ae5d4581bba8ff627db33ab5&region=cn-north-4&locale=zh-cn#/cdn/overview", wait_until="load")

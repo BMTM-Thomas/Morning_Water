@@ -58,7 +58,18 @@ with sync_playwright() as p:
 
     # Launch a new browser page
     page = browser.pages[0] 
-    page.goto("https://intl.cloud.tencent.com/account/login", wait_until="load")
+    page.goto("https://intl.cloud.tencent.com/zh/account/login?s_url=https%3A%2F%2Fconsole.intl.cloud.tencent.com%2Fexpense%2Frmc%2Faccountinfo", wait_until="load")
+
+    try:
+        if page.locator(f"xpath=//div[@class='LoginCommonBox_clg-mod-title__gpSTl']").text_content() == "CAM用户登录":
+            # Waiting for specific text to be appear
+            expect(page.locator("xpath=//div[@class='LoginCommonBox_clg-mod-title__gpSTl']")).to_be_visible(timeout= 0) # "CAM用户登录"
+            expect(page.locator("xpath=//button[@type='submit']")).to_be_visible(timeout= 0) # "登录"
+
+            # Button click, "主账号登录"
+            click_1 = page.locator("xpath=//a[contains(text(),'主账号登录')]").click(force=True) # "主账号登录"      
+    except:
+        pass
 
     # Waiting for specific text to be appear
     expect(page.locator("xpath=//div[@class='LoginCommonBox_clg-mod-title__gpSTl']")).to_be_visible(timeout= 0) # "邮箱登录"
@@ -86,10 +97,10 @@ with sync_playwright() as p:
 
     # Waiting for specific text to be appear
     expect(page.locator("xpath=//div[@class='intl-product-service__title']")).to_be_visible(timeout= 0) # "产品与服务"
-    time.sleep(1)
+    time.sleep(2)
 
-    # go to 资源包/插件管理
-    page.goto("https://console.tencentcloud.com/live/resources/package?language=zh", wait_until="load")
+    # # go to 资源包/插件管理
+    # page.goto("https://console.tencentcloud.com/live/resources/package", wait_until="load")
 
     # Button click  
     b_login = page.locator("xpath=//a[contains(text(),'流量包')]")
@@ -101,7 +112,6 @@ with sync_playwright() as p:
     
     # Count 资源包 total number of tr
     total_rows = len(page.locator("//tbody/tr").all()) 
-    print(total_rows)
 
     # Extract Credit
     try:
