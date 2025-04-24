@@ -52,7 +52,10 @@ def filter_Security_Requests(credit_Request):
         security_Request = match.group(1)
         sr_unit = match.group(2) # (万次 or 次)
 
-        return security_Request, sr_unit
+        if sr_unit == "万次":
+            security_Request = float(security_Request) * 10000
+
+        return security_Request
     else:
         return None, None
 
@@ -65,7 +68,7 @@ USER_DATA_DIR = "/Users/n02-19/PlaywrightProfile"  # User Profile
 collection = mongodb_atlas()
 
 # mongodb id
-m_id = 0
+m_id = 6
 
 # use to loop tencent_edgeOne Tuple
 x = 0
@@ -93,37 +96,27 @@ with sync_playwright() as p:
         no_viewport=True,
     )
     
-    for ven_id in range(1,3):
+    for ven_id in range(2):
 
         # Launch a new browser page
         page = browser.pages[0] 
         time.sleep(1)
         page.goto(tencent_edgeOne_ID[x], wait_until="domcontentloaded", timeout=0)
 
-        # ven414
-        if ven_id == 1: 
+        if ven_id == 0: 
+            # if text_element == "邮箱登录", do something...
+            if page.locator(f"xpath=//div[@class='LoginCommonBox_clg-mod-title__gpSTl']").text_content() == "邮箱登录":
+                # Button click to 子用户登陆
+                click_1 = page.locator("xpath=//a[contains(text(),'子用户登录')]").click(force=True) # "子用户登录"
+        else:
             # if text_element == "CAM用户登录", do something...
             if page.locator(f"xpath=//div[@class='LoginCommonBox_clg-mod-title__gpSTl']").text_content() == "CAM用户登录":
+                # Button click to 主账号登录
+                click_2 = page.locator("xpath=//a[contains(text(),'主账号登录')]").click(force=True) # "主账号登录"
 
-                # Waiting for specific text to be appear
-                expect(page.locator("xpath=//div[@class='LoginCommonBox_clg-mod-title__gpSTl']")).to_be_visible(timeout= 0) # "CAM用户登录"
-                expect(page.locator("xpath=//button[@type='submit']")).to_be_visible(timeout= 0) # "登录"
-
-                # Button click, "主账号登录"
-                click_1 = page.locator("xpath=//a[contains(text(),'主账号登录')]").click(force=True) # "主账号登录"
-                
-                # Waiting for specific text to be appear
-                expect(page.locator("xpath=//div[@class='LoginCommonBox_clg-mod-title__gpSTl']")).to_be_visible(timeout= 0) # "邮箱登录"
-                expect(page.locator("xpath=//button[@type='submit']//span[contains(text(),'登录')]")).to_be_visible(timeout= 0) # "登录"
-            else:
-                # Waiting for specific text to be appear
-                expect(page.locator("xpath=//div[@class='LoginCommonBox_clg-mod-title__gpSTl']")).to_be_visible(timeout= 0) # "邮箱登录"
-                expect(page.locator("xpath=//button[@type='submit']//span[contains(text(),'登录')]")).to_be_visible(timeout= 0) # "登录"
-        # ven469
-        else: 
-            # else Waiting for specific text to be appear
-            expect(page.locator("xpath=//div[@class='LoginCommonBox_clg-mod-title__gpSTl']")).to_be_visible(timeout= 0) # "CAM用户登录"
-            expect(page.locator("xpath=//button[@type='submit']")).to_be_visible(timeout= 0) # "登录"
+        # else Waiting for specific text to be appear
+        expect(page.locator("xpath=//div[@class='LoginCommonBox_clg-mod-title__gpSTl']")).to_be_visible(timeout= 0) # "邮箱登录"
+        expect(page.locator("xpath=//button[@type='submit']")).to_be_visible(timeout= 0) # "
 
         # click lastpass extension       
         pyautogui.click(x=1359, y=62)
@@ -135,7 +128,7 @@ with sync_playwright() as p:
 
         # lastpass search ven and click 
         time.sleep(1)
-        # import aliyun_id from List_zentao.py, ven_id = ven293, ven324, ven319, ven365 ...
+        # import tencent_int_id from list_zentao
         pyautogui.write(tencent_Int_ID[ven_id])
         time.sleep(1)
         pyautogui.click(x=1175, y=179)
@@ -148,7 +141,7 @@ with sync_playwright() as p:
         expect(page.locator("xpath=//h2[contains(text(),'站点列表')]")).to_be_visible(timeout= 0) # "站点列表"
 
         for index, edgeOne_URL in enumerate(tencent_EdgeOne[x]):
-            
+
             # navigate to a link
             page.goto(edgeOne_URL, wait_until="domcontentloaded")
 
@@ -172,14 +165,14 @@ with sync_playwright() as p:
             # Filter 安全 加速流量
             security_Traffic = filter_Security_Traffics(credit_Traffic)
             # Filter 安全 加速请求
-            security_Request, sr_unit = filter_Security_Requests(credit_Request)
+            security_Request = filter_Security_Requests(credit_Request)
 
             print(tencent_Int_ID[ven_id])
             print(f"域名: {domain_Name}")
             print(f"Tag: {tencent_EdgeOne_Tag[y]}")
             print(zone_ID)
             print(f"安全加速流量: {security_Traffic} GB")  
-            print(f"安全加速请求: {security_Request} {sr_unit}")  
+            print(f"安全加速请求: {security_Request} 次")  
 
             # Screenshot
             ImageGrab.grab().save(f'./早班水位/{tencent_Int_ID[ven_id]}_{index+1}.png')
@@ -195,11 +188,10 @@ with sync_playwright() as p:
 
             # use to loop tag
             y+=1
-
+            
         # use to loop tencent_edgeOne Tuple
         x+=1
    
-
         # hover to menu
         pyautogui.moveTo(1544, 162)
 

@@ -1,5 +1,4 @@
 import time
-import math
 import certifi
 import pyautogui
 from playwright.sync_api import sync_playwright, expect
@@ -23,7 +22,7 @@ EXTENSION_PATH2 = "/Users/n02-19/Desktop/playWright/chrome_Extension/SelectorHub
 USER_DATA_DIR = "/Users/n02-19/PlaywrightProfile"  # User Profile
 
 # mongodb id
-m_id = 0
+m_id = 8
 
 with sync_playwright() as p:    
     browser = p.chromium.launch_persistent_context(
@@ -52,41 +51,24 @@ with sync_playwright() as p:
     # Launch a new browser page
     page = browser.pages[0] 
     page.goto("https://ap.www.namecheap.com/", wait_until="domcontentloaded")
-    
+        
     # Waiting for specific text to be appear
-    expect(page.locator("xpath=//h1[normalize-space()='Log In to Your Account']")).to_be_visible(timeout= 0) # "Log in to your account"
-
-    # click lastpass extension       
-    pyautogui.click(x=1359, y=62)
-
-    # Wait for lastpass vault button image to appear
-    image_vault = None
-    while image_vault is None:
-        image_vault = pyautogui.locateOnScreen("./image/vault.png", grayscale = True)
-
-    # lastpass search ven and click 
-    time.sleep(1)
-    # import aliyun_id from List_zentao.py, ven_id = ven293, ven324, ven319, ven365 ...
-    pyautogui.write(namecheap)
-    time.sleep(1)
-    pyautogui.click(x=1145, y=240)
-    time.sleep(1)
-
-    # Button click  
-    nc_click_login = page.locator("xpath=/html/body/form[1]/div[3]/div/div/div/ul/li/fieldset/div[4]/input")
-    nc_click_login.click(force=True) # "click 登录"
-
-    # Waiting for specific text to be appear
-    expect(page.locator("xpath=//h2[normalize-space()='Account Balance']")).to_be_visible(timeout= 0) # "Account Balance"
+    expect(page.locator("xpath=//h1[normalize-space()='Hello Nymph Names']")).to_be_visible(timeout= 0) # ""Hello Nymph Names""
 
     # Extract Credit
-    credit = page.locator(f"//span[normalize-space()='$3 075.42']").text_content()
+    credit = page.locator(f"xpath=/html/body/div[1]/div[3]/div/div[3]/div/div[2]/div/p/span").text_content()
     credit = credit.replace('$', "")
+    credit = credit.replace(" ","")
 
     # MongoDB Update Data
     mangos_id = {'_id': ObjectId(mongodb_id[m_id])}
     collection.update_one(mangos_id, {"$set": {"Credit": credit}})
-    print(f"{tencent_CN_ID[0]}= {credit}")
+    print(f"Namecheap: {credit}")
+
+    # Screenshot
+    ImageGrab.grab().save('./早班水位/ven388.png')
+
+    time.sleep(1)
 
     page.close()
     browser.close()

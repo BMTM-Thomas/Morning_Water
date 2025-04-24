@@ -1,0 +1,250 @@
+[{
+  "_id": {
+    "$oid": "67ef5266cac6b5cc88fb7440"
+  },
+  "Ven_Machine": "阿里雲國際站 ven293 CDN資源包",
+  "Credit": "0",
+  "Unit": "TB",
+  "Secure_Credit": 0.5,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7441"
+  },
+  "Ven_Machine": "阿里雲國際站 ven319 CDN資源包(中國大陸)",
+  "Credit": "0",
+  "Unit": "TB",
+  "Secure_Credit": 5,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7442"
+  },
+  "Ven_Machine": "阿里雲國際站 ven324 CDN資源包",
+  "Credit": "0",
+  "Unit": "TB",
+  "Secure_Credit": 10,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7443"
+  },
+  "Ven_Machine": "阿里雲國際站 ven365 CDN資源包(中國大陸)",
+  "Credit": "0",
+  "Unit": "TB",
+  "Secure_Credit": 2,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7444"
+  },
+  "Ven_Machine": "阿里雲國際站 ven365 CDN資源包(亞太1)",
+  "Credit": "0",
+  "Unit": "TB",
+  "Secure_Credit": 5,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7445"
+  },
+  "Ven_Machine": "阿里雲國際站 ven365 CDN資源包(亞太2)",
+  "Credit": "0",
+  "Unit": "TB",
+  "Secure_Credit": 2,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7446"
+  },
+  "Ven_Machine": "騰訊雲 ven178 CDN流量包",
+  "Credit": "0",
+  "Unit": "TB",
+  "Secure_Credit": 5,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7447"
+  },
+  "Ven_Machine": "ven469騰訊云國際站 edgeone 【充值群-創利Karyn 華為雲】加速流量 use:tk2",
+  "Credit": "0",
+  "Unit": "GB",
+  "Secure_Credit": 40,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7448"
+  },
+  "Ven_Machine": "ven469騰訊云國際站 edgeone 【充值群-創利Karyn 華為雲】加速请求 use:tk2",
+  "Credit": "0",
+  "Unit": "次",
+  "Secure_Credit": 2400000,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7449"
+  },
+  "Ven_Machine": "ven473騰訊云國際站 edgeone 【充值群-海爾雲端科技公司 Hanson】加速流量 use:123tk",
+  "Credit": "0",
+  "Unit": "GB",
+  "Secure_Credit": 40,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb744a"
+  },
+  "Ven_Machine": "ven473騰訊云國際站 edgeone 【充值群-海爾雲端科技公司 Hanson】加速请求 use:123tk",
+  "Credit": "0",
+  "Unit": "次",
+  "Secure_Credit": 2400000,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb744b"
+  },
+  "Ven_Machine": "ven473騰訊云國際站 edgeone 【充值群-海爾雲端科技公司 Hanson】加速流量 use:serno:1 use:853tk",
+  "Credit": "0",
+  "Unit": "GB",
+  "Secure_Credit": 40,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb744c"
+  },
+  "Ven_Machine": "ven473騰訊云國際站 edgeone 【充值群-海爾雲端科技公司 Hanson】加速请求 use:serno:1 use:853tk",
+  "Credit": "0",
+  "Unit": "次",
+  "Secure_Credit": 2400000,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb744d"
+  },
+  "Ven_Machine": "ven473騰訊云國際站 edgeone 【充值群-海爾雲端科技公司 Hanson】加速流量 serno:2 use:853tk",
+  "Credit": "0",
+  "Unit": "GB",
+  "Secure_Credit": 40,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb744e"
+  },
+  "Ven_Machine": "ven473騰訊云國際站 edgeone 【充值群-海爾雲端科技公司 Hanson】加速请求 serno:2 use:853tk",
+  "Credit": "0",
+  "Unit": "次",
+  "Secure_Credit": 2400000,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb744f"
+  },
+  "Ven_Machine": "ven473騰訊云國際站 edgeone 【充值群-海爾雲端科技公司 Hanson】加速流量 use:6htv",
+  "Credit": "0",
+  "Unit": "GB",
+  "Secure_Credit": 40,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7450"
+  },
+  "Ven_Machine": "ven473騰訊云國際站 edgeone 【充值群-海爾雲端科技公司 Hanson】加速请求 use:6htv",
+  "Credit": "0",
+  "Unit": "次",
+  "Secure_Credit": 2400000,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7451"
+  },
+  "Ven_Machine": "ven473騰訊云國際站 edgeone 【充值群-海爾雲端科技公司 Hanson】加速流量 serno:1 use:a6tk",
+  "Credit": "0",
+  "Unit": "GB",
+  "Secure_Credit": 40,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7452"
+  },
+  "Ven_Machine": "ven473騰訊云國際站 edgeone 【充值群-海爾雲端科技公司 Hanson】加速请求 serno:1 use:a6tk",
+  "Credit": "0",
+  "Unit": "次",
+  "Secure_Credit": 2400000,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7453"
+  },
+  "Ven_Machine": "ven473騰訊云國際站 edgeone 【充值群-海爾雲端科技公司 Hanson】加速流量 serno:2 use:a6tk",
+  "Credit": "0",
+  "Unit": "GB",
+  "Secure_Credit": 40,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7454"
+  },
+  "Ven_Machine": "ven473騰訊云國際站 edgeone 【充值群-海爾雲端科技公司 Hanson】加速请求 serno:2 use:a6tk",
+  "Credit": "0",
+  "Unit": "次",
+  "Secure_Credit": 2400000,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7455"
+  },
+  "Ven_Machine": "華為雲ven388 中國大陸cdn流量包",
+  "Credit": "0",
+  "Unit": "TB",
+  "Secure_Credit": 50,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7456"
+  },
+  "Ven_Machine": "NameCheap備用金",
+  "Credit": "0",
+  "Unit": "USD",
+  "Secure_Credit": 2000,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7457"
+  },
+  "Ven_Machine": "ven406銀行卡歸屬地查詢",
+  "Credit": "99994",
+  "Unit": "次",
+  "Secure_Credit": 2000,
+  "Report": "Not Yet"
+},
+{
+  "_id": {
+    "$oid": "67ef5a11cac6b5cc88fb7458"
+  },
+  "Ven_Machine": "ven243[jh03-site-01、03、12、18]騰雲cdn站點流量紀錄",
+  "Credit": "0",
+  "Unit": "次",
+  "Secure_Credit": 240,
+  "Report": "Not Yet"
+}]
